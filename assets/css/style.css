@@ -1,18 +1,23 @@
+/**
+* Template Name: iPortfolio - v1.4.0
+* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
 /*--------------------------------------------------------------
-# General Styling
+# General
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #333;
-  line-height: 1.6;
+  color: #272829;
+  background-color: #f9f9f9; /* Light background for better contrast */
   margin: 0;
   padding: 0;
-  background-color: #f4f7fc;
 }
 
 a {
   color: #149ddd;
-  text-decoration: none;
 }
 
 a:hover {
@@ -22,8 +27,6 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
-  color: #173b6c;
-  margin-bottom: 10px;
 }
 
 /*--------------------------------------------------------------
@@ -32,23 +35,28 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  right: 20px;
-  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  right: 15px;
+  bottom: 15px;
   background: #149ddd;
   color: #fff;
-  transition: background 0.3s ease, transform 0.3s ease;
-  z-index: 9999;
+  transition: display 0.5s ease-in-out;
+  z-index: 99999;
+}
+
+.back-to-top i {
   font-size: 24px;
-  text-align: center;
-  line-height: 48px;
+  position: absolute;
+  top: 7px;
+  left: 8px;
 }
 
 .back-to-top:hover {
+  color: #fff;
   background: #2eafec;
-  transform: scale(1.1);
+  transition: background 0.2s ease-in-out;
 }
 
 /*--------------------------------------------------------------
@@ -60,12 +68,11 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   bottom: 0;
   width: 300px;
-  padding: 20px;
-  background: #040b14;
-  transition: 0.5s;
+  transition: all ease-in-out 0.5s;
   z-index: 9997;
-  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  padding: 0 15px;
+  background: #040b14;
+  overflow-y: auto;
 }
 
 #header .profile img {
@@ -77,30 +84,42 @@ h1, h2, h3, h4, h5, h6 {
 
 #header .profile h1 {
   font-size: 24px;
-  text-align: center;
+  margin: 0;
+  padding: 0;
   font-weight: 600;
-  margin-top: 10px;
+  text-align: center;
   font-family: "Poppins", sans-serif;
+}
+
+#header .profile h1 a, #header .profile h1 a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 #header .profile .social-links a {
   font-size: 18px;
-  margin-right: 10px;
-  padding: 10px;
-  border-radius: 50%;
+  display: inline-block;
   background: #212431;
   color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
   transition: 0.3s;
 }
 
 #header .profile .social-links a:hover {
   background: #149ddd;
   color: #fff;
+  text-decoration: none;
 }
 
 #main {
   margin-left: 300px;
-  padding-top: 80px;
+  transition: margin-left 0.5s;
 }
 
 @media (max-width: 1199px) {
@@ -119,29 +138,72 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 30px;
 }
 
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
 .nav-menu a {
   display: flex;
   align-items: center;
   color: #a8a9b4;
-  padding: 15px;
-  font-size: 16px;
-  text-transform: capitalize;
+  padding: 12px 15px;
+  margin-bottom: 8px;
   transition: 0.3s;
-  font-weight: 600;
+  font-size: 15px;
 }
 
 .nav-menu a i {
-  font-size: 20px;
-  padding-right: 10px;
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  text-decoration: none;
   color: #fff;
-  background-color: rgba(20, 157, 221, 0.1);
 }
 
-.nav-menu a:hover i, .nav-menu .active > a i {
+.nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
   color: #149ddd;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+}
+
+.mobile-nav-toggle i {
+  color: #149ddd;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+}
+
+.mobile-nav-active .mobile-nav-toggle i {
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -150,11 +212,13 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpeg") center center no-repeat;
+  background: url("../img/hero-bg.jpeg") center center; /* Adjusted to center the image properly */
   background-size: cover;
+  background-position: center 80%; /* This will focus more on the lower part of the image, bringing your head towards the center */
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Align the content in the center vertically */
   color: white;
   text-align: center;
   position: relative;
@@ -162,26 +226,33 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero:before {
   content: "";
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(5, 13, 24, 0.3);
   position: absolute;
-  top: 0;
   bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 1;
 }
 
-#hero h1 {
-  font-size: 56px;
-  font-weight: 700;
-  margin: 0;
+#hero .hero-container {
+  position: relative;
   z-index: 2;
+  min-width: 300px;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
 }
 
 #hero p {
-  font-size: 24px;
+  color: #fff;
   margin-bottom: 50px;
-  z-index: 2;
+  font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -192,100 +263,308 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 3px solid #149ddd;
 }
 
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 36px;
-  }
-  #hero p {
-    font-size: 18px;
+@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
   }
 }
 
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+
 /*--------------------------------------------------------------
-# About Section
+# Sections General
 --------------------------------------------------------------*/
-.about .content h3 {
-  font-size: 28px;
-  font-weight: 700;
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background: #f5f8fd;
+}
+
+.section-title {
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
   color: #173b6c;
 }
 
-.about .content ul {
-  list-style: none;
-  padding-left: 0;
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #149ddd;
+  bottom: 0;
+  left: 0;
 }
 
-.about .content ul li {
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Skills Section
+--------------------------------------------------------------*/
+.skills ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+}
+
+.skills li {
+  font-size: 16px; /* Adjust font size for skills items */
+  margin-bottom: 12px; /* Space between skills */
+  display: flex;
+  align-items: center; /* Align the text and icon */
+  position: relative;
+}
+
+.skills li i {
+  font-size: 20px; /* Make the checkmark icon a bit larger */
+  color: #149ddd; /* Blue color for the checkmark icon */
+  margin-right: 10px; /* Add space between the icon and the text */
+}
+
+.skills h4 {
+  font-weight: 700;
+  font-size: 22px; /* Slightly bigger font for section heading */
+  margin-bottom: 20px;
+  color: #173b6c; /* Dark blue color for heading */
+}
+
+.skills .section-title {
+  margin-bottom: 30px;
+  color: #173b6c; /* Dark blue color for section title */
+}
+
+.skills li span {
+  font-size: 16px;
+  color: #505f79; /* A softer color for the skill text */
+}
+
+.skills .bx-check {
+  font-size: 22px; /* Size of the checkmark icon */
+  color: #37b3ed; /* Lighter blue for a clean look */
+  margin-right: 10px; /* Space between checkmark and text */
+}
+
+/* Hover effect for skills */
+.skills li:hover {
+  background-color: #f1faff; /* Light blue hover effect */
+  border-radius: 5px; /* Rounded corners for a clean look */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/*--------------------------------------------------------------
+# Resume
+--------------------------------------------------------------*/
+.resume .resume-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #050d18;
+}
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid #1f5297;
+  position: relative;
+}
+
+.resume .resume-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #050d18;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item h5 {
+  font-size: 16px;
+  background: #e4edf9;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
   padding-bottom: 10px;
 }
 
-.about .content ul i {
-  font-size: 20px;
-  padding-right: 8px;
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #fff;
+  border: 2px solid #1f5297;
+}
+
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+.portfolio .portfolio-item {
+  margin-bottom: 30px;
+}
+
+.portfolio #portfolio-flters {
+  padding: 0;
+  margin: 0 auto 35px auto;
+  list-style: none;
+  text-align: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 2px 15px;
+}
+
+.portfolio #portfolio-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #272829;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
   color: #149ddd;
 }
 
-.about .content p:last-child {
-  margin-bottom: 0;
+.portfolio #portfolio-flters li:last-child {
+  margin-right: 0;
+}
+
+.portfolio .portfolio-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.portfolio .portfolio-wrap::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.portfolio .portfolio-wrap .portfolio-links {
+  opacity: 1;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  z-index: 3;
+  position: absolute;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a {
+  color: #fff;
+  font-size: 28px;
+  text-align: center;
+  background: rgba(20, 157, 221, 0.75);
+  transition: 0.3s;
+  width: 50%;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+  background: rgba(20, 157, 221, 0.95);
+}
+
+.portfolio .portfolio-wrap .portfolio-links a + a {
+  border-left: 1px solid #37b3ed;
+}
+
+.portfolio .portfolio-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-links {
+  opacity: 1;
+  bottom: 0;
 }
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  padding: 20px;
-  background: #040b14;
+  padding: 15px;
   color: #f4f6fd;
   font-size: 14px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  z-index: 9999;
+  background: #040b14;
+}
+
+#footer .copyright {
   text-align: center;
 }
 
-#footer a {
-  color: #149ddd;
+#footer .credits {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: #eaebf0;
 }
 
-#footer a:hover {
-  text-decoration: underline;
-}
-
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-.contact .info {
-  padding: 30px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact .info i {
-  font-size: 24px;
-  background: #dff3fc;
-  padding: 12px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.contact .info h4 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.contact .php-email-form button[type="submit"] {
-  background: #149ddd;
-  border: 0;
-  padding: 12px 30px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.contact .php-email-form button[type="submit"]:hover {
-  background: #37b3ed;
-}
-
-@media (max-width: 767px) {
-  .contact .info {
-    padding: 20px;
+@media (max-width: 1199px) {
+  #footer {
+    position: static;
+    width: auto;
+    padding-right: 20px 15px;
   }
 }
